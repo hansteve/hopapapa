@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 引入样式 -->
+<link rel="stylesheet"
+      href="css/element/index.css">
+
+<body>
+
+</body>
+<!-- 引入组件库 -->
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/element/index.js"></script>
+<script src="/static/js/utils.js"></script>
+<script>
+    console.log(utils.getValue('id'));
+    console.log(utils.getValue('collection_id'));
+    console.log(utils.getValue('name'));
+    console.log(utils.getValue('passwd'));
+
+    $(function () {
+    });
+    function initData() {
+
+        Main = {
+            data() {
+                return {
+                    activeNav: 'pages/home_page/list.html?type=81',
+                    currentRow: null
+                }
+            },
+
+            methods: {
+                handleCurrentChange(val) {
+                    $btnDiv.val(val.id)
+                    this.currentRow = val;
+                },
+                handleSelect(key, keyPath) {
+                    this.activeNav = key;
+                    $("#view_iframe").attr('src', utils.makeNoCacheUrl(key))
+                }
+            }
+        }
+        Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    }
+
+
+</script>
+</html>

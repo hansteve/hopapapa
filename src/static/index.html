@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!-- 引入样式 -->
+<link rel="stylesheet"
+      href="css/element/index.css">
+
+<body>
+
+
+<div id="app">
+    <el-menu :default-active="activeNav" class="el-menu-demo"
+             mode="horizontal" @select="handleSelect">
+        <el-submenu index="2">
+            <template slot="title">首页管理</template>
+            <el-menu-item index="pages/home_page/list.html?type=81">banner管理
+            </el-menu-item>
+            <el-menu-item index="pages/home_page/list.html?type=82">列表管理
+            </el-menu-item>
+            <el-menu-item index="pages/home_page/list.html?type=84">弹框管理
+            </el-menu-item>
+            <el-menu-item index="pages/home_page/list.html?type=85">静态页管理
+            </el-menu-item>
+            <el-menu-item index="pages/home_page/list.html?type=86">首页推荐管理
+            </el-menu-item>
+            <el-menu-item index="pages/home_page/list.html?type=87">热门内容管理
+            </el-menu-item>
+        </el-submenu>
+        <el-submenu index="3">
+            <template slot="title">资源管理</template>
+            <el-menu-item index="pages/audio/list.html">音频管理</el-menu-item>
+            <el-menu-item index="pages/article/list.html">文章管理</el-menu-item>
+            <el-menu-item index="pages/video/list.html">视频管理</el-menu-item>
+            <el-menu-item index="pages/collection/list.html">集合管理</el-menu-item>
+        </el-submenu>
+
+        <el-menu-item index="pages/user/list.html">用户管理</el-menu-item>
+        <el-menu-item index="pages/push/list.html">推送管理</el-menu-item>
+        <el-menu-item index="pages/sensitive_word/list.html">敏感词管理</el-menu-item>
+        <el-menu-item index="pages/image/upload_multi.html">图片管理</el-menu-item>
+    </el-menu>
+    <iframe id="view_iframe" src="pages/carousel/list.html"
+            style="width:100%;height: 1000px" frameborder="no"
+            border="0"></iframe>
+
+</div>
+
+
+</body>
+<!-- 引入组件库 -->
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/vue.js"></script>
+<script src="/static/js/element/index.js"></script>
+<script src="/static/js/utils.js"></script>
+<script>
+    var Main;
+    var Ctor;
+    var $btnDiv = $('#app')
+
+    $(function () {
+        initData()
+    });
+    function initData() {
+
+        Main = {
+            data() {
+                return {
+                    activeNav: 'pages/home_page/list.html?type=81',
+                    currentRow: null
+                }
+            },
+
+            methods: {
+                handleCurrentChange(val) {
+                    $btnDiv.val(val.id)
+                    this.currentRow = val;
+                },
+                handleSelect(key, keyPath) {
+                    this.activeNav = key;
+                    $("#view_iframe").attr('src', utils.makeNoCacheUrl(key))
+                }
+            }
+        }
+        Ctor = Vue.extend(Main)
+        new Ctor().$mount('#app')
+    }
+
+
+</script>
+</html>

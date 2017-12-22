@@ -1,0 +1,14 @@
+[2017-05-20 13:40:47 +0000] [12861] [INFO] Starting gunicorn 19.7.1
+[2017-05-20 13:40:47 +0000] [12861] [INFO] Listening at: http://127.0.0.1:8000 (12861)
+[2017-05-20 13:40:47 +0000] [12861] [INFO] Using worker: sync
+[2017-05-20 13:40:47 +0000] [12901] [INFO] Booting worker with pid: 12901
+/root/.pyenv/versions/2.7.12/envs/env_hopapapa/lib/python2.7/site-packages/flask_sqlalchemy/__init__.py:800: UserWarning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.
+  warnings.warn('SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.  Set it to True to suppress this warning.')
+/root/hopapapa/src/api/home_page/service.py:28: ExtDeprecationWarning: Importing flask.ext.sqlalchemy is deprecated, use flask_sqlalchemy instead.
+  from flask.ext.sqlalchemy import Pagination
+[2017-05-20 13:47:00 +0000] [12901] [INFO] Worker exiting (pid: 12901)
+-------------------------init app-------------------------
+[2017-05-20 13:47:00 +0000] [12861] [CRITICAL] WORKER TIMEOUT (pid:12901)
+Exception KeyError: KeyError(140650964854528,) in <module 'threading' from '/root/.pyenv/versions/2.7.12/lib/python2.7/threading.pyc'> ignored
+[2017-05-20 13:47:00 +0000] [12861] [INFO] Handling signal: term
+[2017-05-20 13:47:00 +0000] [12861] [INFO] Shutting down: Master
